@@ -27,6 +27,7 @@ namespace McPlat.Pages
             AllStats.Week.Hours.Add(double.Parse(vm.WeekHours));
 
             vm.Change();
+
         }
     }
 
