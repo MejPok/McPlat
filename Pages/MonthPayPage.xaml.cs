@@ -22,9 +22,8 @@ namespace McPlat.Pages
 
         private void WeekHoursAdd(object sender, RoutedEventArgs e)
         {
-            WeekList.Items.Add(vm.WeekHours);
-
-            AllStats.Week.Hours.Add(double.Parse(vm.WeekHours));
+            WeekList.Items.Add(vm.Week.Hours);
+            AllStats.Week.Hours.Add(double.Parse(vm.Week.Hours));
 
             vm.Change();
 

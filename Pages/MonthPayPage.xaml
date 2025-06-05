@@ -22,11 +22,11 @@
 
         <StackPanel Grid.Row="0">
 
-            <TextBox Text="{Binding WeekHours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="60"/>
+            <TextBox Text="{Binding Week.Hours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="60"/>
             <Button Content="Add Hours" Click="WeekHoursAdd"/>
             <ListView Name="WeekList" MaxHeight="250"/>
-            <TextBlock Text="{Binding WeekPay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold"/>
-            <TextBlock Text="{Binding weekHoursIn, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"/>
+            <TextBlock Text="{Binding Week.Pay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Week.HoursIn, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"/>
 
         </StackPanel>
 

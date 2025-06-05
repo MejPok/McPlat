@@ -14,22 +14,11 @@ namespace McPlat.ViewModel
         ListView view;
         public VMMonthPay(ListView _view) {
             view = _view;
+            Week = new VMWeek();
             Setup();
         }
 
-        private string _weekHours;
-        public string WeekHours
-        {
-            get => _weekHours;
-            set
-            {
-                if (_weekHours != value)
-                {
-                    _weekHours = value;
-                    OnPropertyChanged(nameof(WeekHours));
-                }
-            }
-        }
+        public VMWeek Week { get; set; }
 
         private string _allPay;
         public string AllPay
@@ -46,37 +35,6 @@ namespace McPlat.ViewModel
         }
 
 
-
-        private string _weekPay;
-        public string WeekPay
-        {
-            get => _weekPay;
-            set
-            {
-                if (_weekPay != value)
-                {
-                    _weekPay = value;
-                    OnPropertyChanged(nameof(WeekPay));
-                }
-            }
-        }
-
-
-
-        private string _weekHoursIn;
-        public string weekHoursIn
-        {
-            get => _weekHoursIn;
-            set
-            {
-                if (_weekHoursIn != value)
-                {
-                    _weekHoursIn = value;
-                    OnPropertyChanged(nameof(weekHoursIn));
-                }
-            }
-        }
-
         void Setup()
         {
             foreach (double item in AllStats.Week.Hours)
@@ -90,8 +48,8 @@ namespace McPlat.ViewModel
         public void Change()
         {
             AllPay = AllStats.TotalPay() + "";
-            WeekPay = AllStats.Week.GetPay() + "";
-            weekHoursIn = AllStats.Week.AllHours + "";
+            Week.Pay = AllStats.Week.GetPay() + "";
+            Week.HoursIn = AllStats.Week.AllHours + "";
         }
 
 
@@ -103,4 +61,61 @@ namespace McPlat.ViewModel
            PropertyChangedEventArgs(propertyName));
         }
     }
+
+
+
+    public class VMWeek : INotifyPropertyChanged {
+        private string _Hours;
+        public string Hours
+        {
+            get => _Hours;
+            set
+            {
+                if (_Hours != value)
+                {
+                    _Hours = value;
+                    OnPropertyChanged(nameof(Hours));
+                }
+            }
+        }
+
+        private string _Pay;
+        public string Pay
+        {
+            get => _Pay;
+            set
+            {
+                if (_Pay != value)
+                {
+                    _Pay = value;
+                    OnPropertyChanged(nameof(Pay));
+                }
+            }
+        }
+
+
+
+        private string _HoursIn;
+        public string HoursIn
+        {
+            get => _HoursIn;
+            set
+            {
+                if (_HoursIn != value)
+                {
+                    _HoursIn = value;
+                    OnPropertyChanged(nameof(HoursIn));
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new
+           PropertyChangedEventArgs(propertyName));
+        }
+
+    }
+
 }
