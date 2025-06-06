@@ -10,7 +10,7 @@
 
         public static double TotalPay()
         {
-            double total = Week.GetPay() + Weekend.GetPay();
+            double total = Week.GetPay() + Weekend.GetPay() + Holiday.GetPay() + HolidayWeekend.GetPay();
 
             return total;
         }

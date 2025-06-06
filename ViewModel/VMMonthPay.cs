@@ -12,19 +12,27 @@ namespace McPlat.ViewModel
     internal class VMMonthPay: INotifyPropertyChanged
     {
         ListView weekList;
-        ListView weekendList;   
-        public VMMonthPay(ListView _weekList, ListView _weekendList) {
+        ListView weekendList;
+        ListView holidayList;
+        ListView holidayWeekendList;
+        public VMMonthPay(ListView _weekList, ListView _weekendList, ListView _holidayList, ListView _holidayWeekendList) {
             weekList = _weekList;
             weekendList = _weekendList;
+            holidayList = _holidayList;
+            holidayWeekendList = _holidayWeekendList;
 
             Week = new VMWeek();
             Weekend = new VMWeek();
+            Holiday = new VMWeek();
+            HolidayWeekend = new VMWeek();
 
             Setup();
         }
 
         public VMWeek Week { get; set; }
         public VMWeek Weekend { get; set; }
+        public VMWeek Holiday { get; set; }
+        public VMWeek HolidayWeekend { get; set; }
 
         private string _allPay;
         public string AllPay
@@ -51,6 +59,14 @@ namespace McPlat.ViewModel
             {
                 weekendList.Items.Add(item);
             }
+            foreach (double item in AllStats.Holiday.Hours)
+            {
+                holidayList.Items.Add(item);
+            }
+            foreach (double item in AllStats.HolidayWeekend.Hours)
+            {
+                holidayWeekendList.Items.Add(item);
+            }
 
             Change();
         }
@@ -63,6 +79,12 @@ namespace McPlat.ViewModel
             
             Weekend.Pay = AllStats.Weekend.GetPay() + "";
             Weekend.HoursIn = AllStats.Weekend.AllHours + "";
+
+            Holiday.Pay = AllStats.Holiday.GetPay() + "";
+            Holiday.HoursIn = AllStats.Holiday.AllHours + "";
+
+            HolidayWeekend.Pay = AllStats.HolidayWeekend.GetPay() + "";
+            HolidayWeekend.HoursIn = AllStats.HolidayWeekend.AllHours + "";
         }
 
 

@@ -13,7 +13,7 @@ namespace McPlat.Pages
         public MonthPayPage()
         {
             InitializeComponent();
-            vm = new VMMonthPay(WeekList, WeekendList);
+            vm = new VMMonthPay(WeekList, WeekendList, HolidayList, HolidayWeekendList);
             this.DataContext = vm;
 
         }
@@ -39,15 +39,15 @@ namespace McPlat.Pages
 
         private void HolidayHoursAdd(object sender, RoutedEventArgs e)
         {
-            WeekendList.Items.Add(vm.Weekend.Hours);
-            AllStats.Weekend.Hours.Add(double.Parse(vm.Weekend.Hours));
+            HolidayList.Items.Add(vm.Holiday.Hours);
+            AllStats.Holiday.Hours.Add(double.Parse(vm.Holiday.Hours));
 
             vm.Change();
         }
         private void HolidayWeekendHoursAdd(object sender, RoutedEventArgs e)
         {
-            WeekendList.Items.Add(vm.Weekend.Hours);
-            AllStats.Weekend.Hours.Add(double.Parse(vm.Weekend.Hours));
+            HolidayWeekendList.Items.Add(vm.HolidayWeekend.Hours);
+            AllStats.HolidayWeekend.Hours.Add(double.Parse(vm.HolidayWeekend.Hours));
 
             vm.Change();
         }
