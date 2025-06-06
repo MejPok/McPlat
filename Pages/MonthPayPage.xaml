@@ -21,6 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0">
+            <TextBlock Text="Week" HorizontalAlignment="Center"/>
 
             <TextBox Text="{Binding Week.Hours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="60"/>
             <Button Content="Add Hours" Click="WeekHoursAdd"/>
@@ -30,7 +31,35 @@
 
         </StackPanel>
 
-        <ListView Grid.Column="1" />
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="Weekend" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Weekend.Hours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="60"/>
+            <Button Content="Add Hours" Click="WeekendHoursAdd"/>
+            <ListView Name="WeekendList" MaxHeight="250"/>
+            <TextBlock Text="{Binding Weekend.Pay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Weekend.HoursIn, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"/>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <TextBlock Text="Holiday" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Holiday.Hours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="60"/>
+            <Button Content="Add Hours" Click="WeekendHoursAdd"/>
+            <ListView Name="HolidayList" MaxHeight="250"/>
+            <TextBlock Text="{Binding Holiday.Pay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Holiday.HoursIn, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"/>
+
+        </StackPanel>
+        
+        <StackPanel Grid.Row="0" Grid.Column="3">
+            <TextBlock Text="Weekend" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding HolidayWeekend.Hours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="60"/>
+            <Button Content="Add Hours" Click="WeekendHoursAdd"/>
+            <ListView Name="HolidayWeekendList" MaxHeight="250"/>
+            <TextBlock Text="{Binding HolidayWeekend.Pay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="{Binding HolidayWeekend.HoursIn, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"/>
+
+        </StackPanel>
 
         <ListView Grid.Column="2" />
 

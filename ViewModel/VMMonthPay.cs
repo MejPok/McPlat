@@ -11,14 +11,20 @@ namespace McPlat.ViewModel
 {
     internal class VMMonthPay: INotifyPropertyChanged
     {
-        ListView view;
-        public VMMonthPay(ListView _view) {
-            view = _view;
+        ListView weekList;
+        ListView weekendList;   
+        public VMMonthPay(ListView _weekList, ListView _weekendList) {
+            weekList = _weekList;
+            weekendList = _weekendList;
+
             Week = new VMWeek();
+            Weekend = new VMWeek();
+
             Setup();
         }
 
         public VMWeek Week { get; set; }
+        public VMWeek Weekend { get; set; }
 
         private string _allPay;
         public string AllPay
@@ -39,7 +45,11 @@ namespace McPlat.ViewModel
         {
             foreach (double item in AllStats.Week.Hours)
             {
-                view.Items.Add(item);
+                weekList.Items.Add(item);
+            }
+            foreach (double item in AllStats.Weekend.Hours)
+            {
+                weekendList.Items.Add(item);
             }
 
             Change();
@@ -50,6 +60,9 @@ namespace McPlat.ViewModel
             AllPay = AllStats.TotalPay() + "";
             Week.Pay = AllStats.Week.GetPay() + "";
             Week.HoursIn = AllStats.Week.AllHours + "";
+            
+            Weekend.Pay = AllStats.Weekend.GetPay() + "";
+            Weekend.HoursIn = AllStats.Weekend.AllHours + "";
         }
 
 
