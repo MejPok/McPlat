@@ -24,6 +24,7 @@
 
             <Button Content="MainPage" Click="GoToMainPage" Height="60"/>
             <Button Content="MonthPay" Click="GoToMonthPay" Height="60" Grid.Row="1"/>
+            <Button Content="Finance" Click="GoToFinance" Height="60" Grid.Row="2"/>
         </Grid>
 
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" />

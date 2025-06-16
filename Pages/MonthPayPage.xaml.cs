@@ -18,12 +18,17 @@ namespace McPlat.Pages
 
         }
 
-
+        
 
         private void WeekHoursAdd(object sender, RoutedEventArgs e)
         {
-            WeekList.Items.Add(vm.Week.Hours);
-            AllStats.Week.Hours.Add(double.Parse(vm.Week.Hours));
+            string hoursString = vm.Week.Hours;
+
+            if(double.TryParse(hoursString, out double hours))
+            {
+                WeekList.Items.Add(hours);
+                AllStats.Week.Hours.Add(hours);
+            }
 
             vm.Change();
 
@@ -31,23 +36,38 @@ namespace McPlat.Pages
 
         private void WeekendHoursAdd(object sender, RoutedEventArgs e)
         {
-            WeekendList.Items.Add(vm.Weekend.Hours);
-            AllStats.Weekend.Hours.Add(double.Parse(vm.Weekend.Hours));
+            string hoursString = vm.Weekend.Hours;
+
+            if (double.TryParse(hoursString, out double hours))
+            {
+                WeekendList.Items.Add(hours);
+                AllStats.Weekend.Hours.Add(hours);
+            }
 
             vm.Change();
         }
 
         private void HolidayHoursAdd(object sender, RoutedEventArgs e)
         {
-            HolidayList.Items.Add(vm.Holiday.Hours);
-            AllStats.Holiday.Hours.Add(double.Parse(vm.Holiday.Hours));
+            string hoursString = vm.Holiday.Hours;
+
+            if (double.TryParse(hoursString, out double hours))
+            {
+                HolidayList.Items.Add(hours);
+                AllStats.Holiday.Hours.Add(hours);
+            }
 
             vm.Change();
         }
         private void HolidayWeekendHoursAdd(object sender, RoutedEventArgs e)
         {
-            HolidayWeekendList.Items.Add(vm.HolidayWeekend.Hours);
-            AllStats.HolidayWeekend.Hours.Add(double.Parse(vm.HolidayWeekend.Hours));
+            string hoursString = vm.HolidayWeekend.Hours;
+
+            if (double.TryParse(hoursString, out double hours))
+            {
+                HolidayWeekendList.Items.Add(hours);
+                AllStats.HolidayWeekend.Hours.Add(hours);
+            }
 
             vm.Change();
         }

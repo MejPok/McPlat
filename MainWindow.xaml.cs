@@ -33,6 +33,10 @@ namespace McPlat
         {
             MainFrame.Navigate(new MonthPayPage());
         }
-        
+        private void GoToFinance(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Finance());
+        }
+
     }
 }

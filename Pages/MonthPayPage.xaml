@@ -52,7 +52,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="3">
-            <TextBlock Text="Weekend" HorizontalAlignment="Center"/>
+            <TextBlock Text="Holiday on weekend" HorizontalAlignment="Center"/>
             <TextBox Text="{Binding HolidayWeekend.Hours, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="60"/>
             <Button Content="Add Hours" Click="HolidayWeekendHoursAdd"/>
             <ListView Name="HolidayWeekendList" MaxHeight="250"/>

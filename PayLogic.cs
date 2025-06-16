@@ -42,5 +42,17 @@ namespace McPlat
 
             throw new Exception("Issue selecting workday");
         }
+
+        public static  (decimal, decimal, decimal) SpendPerDay(decimal money, decimal days, int save, decimal amountLeft)
+        {
+            decimal moneyAllowed = money;
+
+            decimal saved = moneyAllowed * save / 100;
+            moneyAllowed -= saved;
+            moneyAllowed -= amountLeft;
+            decimal spendperday = moneyAllowed / days;
+            (decimal, decimal, decimal) result = (spendperday, saved, amountLeft);
+            return result;
+        }
     }
 }
